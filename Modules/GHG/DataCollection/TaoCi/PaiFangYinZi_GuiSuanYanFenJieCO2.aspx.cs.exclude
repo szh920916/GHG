@@ -1,0 +1,234 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Data;
+
+public partial class Modules_GHG_DataCollection_TaoCi_PaiFangYinZi_GuiSuanYanFenJie : System.Web.UI.Page
+{
+    
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!Page.IsPostBack)
+        {
+
+            int year = DateTime.Now.Year;// 取当前时间年                
+            ListItem yearItem = null;
+            for (int i = year; i > year - 16; i--)//初始化DropDownList年份
+            {
+                yearItem = new ListItem(i.ToString(), i.ToString());
+                DropDownList1.Items.Add(yearItem);
+            }
+        }
+    }
+    protected void GridView1_RowCreated(object sender, GridViewRowEventArgs e)
+    {
+        int headerIndex = 0;
+        //int footerIndex = 0;
+
+        switch (e.Row.RowType)
+        {
+            case DataControlRowType.Header:
+                //第一行表头
+                TableCellCollection tcHeader = e.Row.Cells;
+                tcHeader.Clear();
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("rowspan", "2"); //跨Row
+                tcHeader[headerIndex].Text = "硅酸盐种类";
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("colspan", "1"); //跨Row
+                tcHeader[headerIndex].Text = "消耗量（吨）";
+
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("colspan", "1"); //跨Row
+                tcHeader[headerIndex].Text = "利用率";
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("colspan", "1"); //跨Row
+                tcHeader[headerIndex].Text = "碳酸钙质量分数";
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("colspan", "1"); //跨Row
+                tcHeader[headerIndex].Text = "碳酸镁质量分数";
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("colspan", "1"); //跨Row
+                tcHeader[headerIndex].Text = "碳酸钙分子量换算系数";
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("colspan", "1"); //跨Row
+                tcHeader[headerIndex].Text = "碳酸镁分子量换算系数";
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("colspan", "1"); //跨Row
+                tcHeader[headerIndex].Text = "排放量（tCO2）</th></tr><tr>";
+             
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("class", "HeadB");
+                tcHeader[headerIndex].Text = "A";
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("class", "HeadB");
+                tcHeader[headerIndex].Text = "B";
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("class", "HeadB");
+                tcHeader[headerIndex].Text = "C";
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("class", "HeadB");
+                tcHeader[headerIndex].Text = "D";
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("class", "HeadB");
+                tcHeader[headerIndex].Text = "E";
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("class", "HeadB");
+                tcHeader[headerIndex].Text = "F";
+
+                headerIndex++;
+                tcHeader.Add(new TableHeaderCell());
+                tcHeader[headerIndex].Attributes.Add("class", "HeadB");
+                tcHeader[headerIndex].Text = "G=A*B*(C*E+D*F)";
+
+                break;
+            case DataControlRowType.Footer:
+
+                e.Row.Cells[0].ColumnSpan = e.Row.Cells.Count - 1;
+                e.Row.Cells[0].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[0].Text = "合计";
+                e.Row.Cells[2].Width = 0;
+                e.Row.Cells[2].Visible = false;
+                e.Row.Cells[3].Width = 0;
+                e.Row.Cells[3].Visible = false;
+                e.Row.Cells[4].Width = 0;
+                e.Row.Cells[4].Visible = false;
+                e.Row.Cells[5].Width = 0;
+                e.Row.Cells[5].Visible = false;
+                e.Row.Cells[6].Width = 0;
+                e.Row.Cells[6].Visible = false;
+                e.Row.Cells[1].Width = 0;
+
+                e.Row.Cells[7].Visible = false;
+                break;
+        }
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        double sum = 0;
+        for (int i = 0; i < GridView1.Rows.Count; i++)
+        {
+            string A = ((GridView1.Rows[i].Cells[1].FindControl("TextBox2")) as TextBox).Text.ToString();
+            string B = ((GridView1.Rows[i].Cells[2].FindControl("TextBox3")) as TextBox).Text.ToString();
+            string C = ((GridView1.Rows[i].Cells[3].FindControl("TextBox4")) as TextBox).Text.ToString();
+            string D = ((GridView1.Rows[i].Cells[4].FindControl("TextBox5")) as TextBox).Text.ToString();
+            string E = ((GridView1.Rows[i].Cells[5].FindControl("TextBox6")) as TextBox).Text.ToString();
+            string F = ((GridView1.Rows[i].Cells[6].FindControl("TextBox7")) as TextBox).Text.ToString();
+
+            if (A == "" | B == "" | C == "" | D == "" | E == "" | F == "")
+            {
+                Response.Write("<script>alert('请填写数据')</script>");
+                return;
+            }
+            else
+            {
+
+                double a = double.Parse(A);
+                double b = double.Parse(B);
+                double c = double.Parse(C);
+                double d = double.Parse(D);
+                double ee = double.Parse(E);
+                double f = double.Parse(F);
+                GridView1.Rows[i].Cells[7].Text = (a*b*(c*ee+d*f)).ToString();
+            }
+            sum += double.Parse(GridView1.Rows[i].Cells[7].Text);
+            GridView1.FooterRow.Cells[1].Text = sum.ToString();
+
+        }
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        string strConn = System.Configuration.ConfigurationManager.ConnectionStrings["GHG"].ConnectionString;
+        SqlConnection conn = new SqlConnection(strConn);
+        conn.Open();
+
+        //获取企业ID
+        string QiYeZuZhiJiGouDaiMa = Session["UserName"].ToString();
+        string QiYeIDSql = "select QiYeID from Company where QiYeZuZhiJiGouDaiMa='" + QiYeZuZhiJiGouDaiMa + "'";
+
+        SqlCommand QiYeIDcmd = new SqlCommand(QiYeIDSql, conn);
+        string QiYeID = QiYeIDcmd.ExecuteScalar().ToString();
+        
+
+        for (int i = 0; i < this.GridView1.Rows.Count; i++)
+        {
+            string GuiSuanYanZhongLei = GridView1.Rows[i].Cells[0].Text.ToString();
+
+            string XiaoHaoLiang = ((GridView1.Rows[i].Cells[1].FindControl("TextBox2")) as TextBox).Text.ToString();
+            string LiYongLv = ((GridView1.Rows[i].Cells[1].FindControl("TextBox3")) as TextBox).Text.ToString();
+            string TanSuanGaiZhiLiangFenShu = ((GridView1.Rows[i].Cells[1].FindControl("TextBox4")) as TextBox).Text.ToString();
+            string TanSuanMeiZhiLiangFenShu = ((GridView1.Rows[i].Cells[1].FindControl("TextBox5")) as TextBox).Text.ToString();
+            string TanSuanGaiHuanSuanXiShu = ((GridView1.Rows[i].Cells[1].FindControl("TextBox6")) as TextBox).Text.ToString();
+            string TanSuanMeiHuanSuanXiShu = ((GridView1.Rows[i].Cells[1].FindControl("TextBox7")) as TextBox).Text.ToString();
+            string GongYeShengChanGuoChengPaiFangLiang = GridView1.FooterRow.Cells[1].Text.ToString();
+
+
+            bool b = DateIsExist.IsExist("*", "TaoCi_GuiSuanYanFenJieCO2", "QiYeID", QiYeID, "GuiSuanYanZhongLei", GuiSuanYanZhongLei, "NianFen", this.DropDownList1.SelectedValue.ToString());
+            if (b)
+            {
+                string Sql = "update TaoCi_GuiSuanYanFenJieCO2 set GuiSuanYanZhongLei='" + GuiSuanYanZhongLei + "', XiaoHaoLiang='" + XiaoHaoLiang + "', LiYongLv= '" + LiYongLv + "',TanSuanGaiZhiLiangFenShu= '" + TanSuanGaiZhiLiangFenShu + "', TanSuanMeiZhiLiangFenShu= '" + TanSuanMeiZhiLiangFenShu + "',TanSuanGaiHuanSuanXiShu= '" + TanSuanGaiHuanSuanXiShu + "',TanSuanMeiHuanSuanXiShu= '" + TanSuanMeiHuanSuanXiShu + "' where  QiYeID='" + QiYeID + "' and GuiSuanYanZhongLei='" + GuiSuanYanZhongLei + "'and NianFen='" + this.DropDownList1.SelectedValue.ToString() + "'";
+                SqlCommand cmd = new SqlCommand(Sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+
+            else
+            {
+                string strSql = "insert into TaoCi_GuiSuanYanFenJieCO2(QiYeID,GuiSuanYanZhongLei,XiaoHaoLiang,LiYongLv,TanSuanGaiZhiLiangFenShu,TanSuanMeiZhiLiangFenShu,TanSuanGaiHuanSuanXiShu,TanSuanMeiHuanSuanXiShu,NianFen) values('" + QiYeID + "','" + GuiSuanYanZhongLei + "','" + XiaoHaoLiang + "','" + LiYongLv + "','" + TanSuanGaiZhiLiangFenShu + "','" + TanSuanMeiZhiLiangFenShu + "','" + TanSuanGaiHuanSuanXiShu + "','" + TanSuanMeiHuanSuanXiShu + "','" + this.DropDownList1.SelectedValue.ToString() + "')";
+                SqlCommand cmd = new SqlCommand(strSql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            bool b1 = DateIsExist.IsExist("*", "TaoCi_CO2HuiZongBiao", "QiYeID", QiYeID);
+            if (b1)
+            {
+                string ZongJiSql = "update TaoCi_CO2HuiZongBiao set GongYeShengChanGuoChengPaiFangLiang='" + GongYeShengChanGuoChengPaiFangLiang + "' where QiYeID='" + QiYeID + "'";
+                SqlCommand cmdZongJi = new SqlCommand(ZongJiSql, conn);
+                cmdZongJi.ExecuteNonQuery();
+            }
+
+            else
+            {
+                string ZongJiSql = "insert into TaoCi_CO2HuiZongBiao(QiYeID,GongYeShengChanGuoChengPaiFangLiang,NianFen) values('" + QiYeID + "','" + GongYeShengChanGuoChengPaiFangLiang + "','" + DateTime.Now.Year.ToString() + "')";
+
+                SqlCommand cmdZongJi = new SqlCommand(ZongJiSql, conn);
+                cmdZongJi.ExecuteNonQuery();
+            }
+
+        }
+
+
+        conn.Close();
+        Response.Redirect("PaiFangShuJuTianBao.aspx");
+    }
+
+    
+}

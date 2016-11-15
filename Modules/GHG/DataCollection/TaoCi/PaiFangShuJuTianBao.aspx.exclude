@@ -1,0 +1,69 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PaiFangShuJuTianBao.aspx.cs"
+    Inherits="Modules_GHG_DataCollection_TaoCi_PaiFangShuJuTianBao" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        #form1
+        {
+            width: 693px;
+            height: 247px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="height: 454px; width: 1152px">
+    <form id="form1" runat="server">
+    <div style="text-align: center; width: 431px;">
+        <div style="width: 132px; height: 235px; float: left; display: inline; margin-left: 120px;">
+            <asp:Panel ID="Panel1" runat="server" Height="188px" Width="150px">
+                <div style="margin-top: 20px">
+                    <asp:Label ID="Label1" runat="server" Text="活动水平数据填报" Font-Bold="True"></asp:Label>
+                </div>
+                <div style="margin-top: 20px">
+                    <asp:Button ID="Button1" runat="server" Text="化石燃料燃烧数据" Height="28px" OnClick="Button1_Click"
+                        Width="130px" />
+                </div>
+                <div style="margin-top: 20px">
+                    <asp:Button ID="Button3" runat="server" Height="28px" Text="工业生产过程数据" OnClick="Button3_Click1"
+                        Width="130px" />
+                </div>
+                <div style="margin-top: 20px">
+                    <asp:Button ID="Button5" runat="server" Height="28px" Text="净购入生产用电" OnClick="Button5_Click"
+                        Width="130px" Style="margin-left: 0px" />
+                </div>
+                <div style="margin-top: 20px">
+                    <asp:Button ID="Button7" runat="server" Height="28px" Text="化石燃料参数选择" OnClick="Button7_Click"
+                        Width="130px" Style="margin-left: 0px" />
+                </div>
+            </asp:Panel>
+        </div>
+        <div style="width: 140px; height: auto; float: left; display: inline; margin-left: 0px;">
+            <asp:Panel ID="Panel2" runat="server" Height="188px" Width="150px" Style="margin-left: 30px">
+                <div style="margin-top: 20px">
+                    <asp:Label ID="Label2" runat="server" Text="排放因子数据填报" Font-Bold="True"></asp:Label>
+                </div>
+                <div style="margin-top: 20px">
+                    <asp:Button ID="Button2" runat="server" Height="28px" OnClick="Button2_Click" Text="化石燃料产生CO2"
+                        Width="130px" />
+                </div>
+                <div style="margin-top: 20px">
+                    <asp:Button ID="Button4" runat="server" Height="28px" Text="工业生产过程数据" OnClick="Button4_Click"
+                        Width="130px" />
+                </div>
+                <div style="margin-top: 20px">
+                    <asp:Button ID="Button6" runat="server" Height="28px" Text="电力热力数据" OnClick="Button6_Click"
+                        Width="130px" />
+                </div>
+                <div style="margin-top: 20px">
+                    <asp:Button ID="Button8" runat="server" Height="28px" Text="排放量汇总表" OnClick="Button8_Click"
+                        Width="130px" />
+                </div>
+            </asp:Panel>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿body
+{
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+}
+
+.toplink:link {
+	font-family: "宋体";
+	font-size: 14px;
+	font-style: normal;
+	line-height: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.toplink:visited {
+	font-family: "宋体";
+	font-size: 14px;
+	font-style: normal;
+	line-height: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.toplink:hover {
+	font-family: "宋体";
+	font-size: 14px;
+	font-style: normal;
+	line-height: normal;
+	color: #FFFF00;
+	text-decoration: none;
+}

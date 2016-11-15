@@ -1,0 +1,65 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DianLiReLiCO2.aspx.cs" Inherits="Modules_GHG_DataCollection_TaoCi_DianLiReLiCO2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+       
+        <br />
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Label2" runat="server" Text="电力和热力二氧含碳排放量 " ForeColor="Red"></asp:Label>
+        <br />
+        <br />
+        <asp:GridView ID="GridView1" runat="server" EnableModelValidation="True"
+             AutoGenerateColumns="False" 
+            DataSourceID="SqlDataSource1" >
+
+            <Columns>
+                <asp:BoundField DataField="LeiXing" HeaderText=" 类型" 
+                    SortExpression="LeiXing" />
+                     <asp:TemplateField HeaderText="净购入量（MWh或GJ）">
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text="计算值"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                 <asp:TemplateField HeaderText="购入量（MWh或GJ）">
+                    <ItemTemplate>
+                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                 <asp:TemplateField HeaderText="外供量（MWh或GJ）">
+                    <ItemTemplate>
+                        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                 <asp:TemplateField HeaderText="排放因子（tCO2/MWh或GJ）">
+                    <ItemTemplate>
+                        <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                 <asp:TemplateField HeaderText="排放量（tCO2）">
+                    <ItemTemplate>
+                         <asp:Label ID="Label4" runat="server" Text="计算值"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+
+           
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:GHGSZH %>" 
+            SelectCommand="SELECT * FROM [TaoCi_ReLiLeiXing]"></asp:SqlDataSource>
+        <br />
+&nbsp;<asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
+            Text="计算" style="margin-right: 35px" />
+        <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="保存" />
+    </div>
+&nbsp;&nbsp;
+    </form>
+</body>
+</html>

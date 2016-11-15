@@ -1,0 +1,47 @@
+
+.SnapHeader
+{
+  color: #ffffff;
+  background-color: #666;
+  background-image: url(images/snap_headerBg.gif);
+  border: 1px solid #333;
+  font-family: Tahoma;
+  font-weight: bold;
+  height:16px;
+}
+
+.SnapHeaderCollapsed
+{
+  color: #777777;
+  background-color: #E0DFE3;
+  background-image: url(images/snap_headerCollapsedBg.gif);
+  border: 1px solid #777777;
+  font-family: Tahoma;
+  font-weight: bold;
+}
+
+.SnapContent
+{
+  font-family: Tahoma;
+  text-align:left;
+  font-size: 11px;
+  padding: 3px;
+  border: 1px solid #333;
+  border-top-width: 0px;
+  background-color: white;
+  cursor: default;
+}
+
+.Dock
+{
+  padding:5px;
+  border:#AFAFAF 1px solid;
+  background-color:#D1D1D1;
+}
+
+.Links
+{
+  list-style-image:none;
+  color:Black;
+  font-size:11px;
+}

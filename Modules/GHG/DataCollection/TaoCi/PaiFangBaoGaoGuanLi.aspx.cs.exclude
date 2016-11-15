@@ -1,0 +1,59 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+
+public partial class Modules_GHG_DataCollection_TaoCi_PaiFangBaoGaoGuanLi : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string QiYeID = Convert.ToString( DateIsExist.XIsExist("QiYeID", "Company", "QiYeZuZhiJiGouDaiMa", Session["UserName"].ToString()));
+       
+        if (!DateIsExist.IsExist("*", "TaoCi_HuaShiRanLiaoCO2","QiYeID",QiYeID))
+        {
+            Response.Write("<script>alert('化石燃料燃烧二氧化碳排放量表没有填写！')</script>");
+        }
+
+        else if (!DateIsExist.IsExist("*", "TaoCi_GuiSuanYanFenJieCO2","QiYeID",QiYeID))
+        {
+            Response.Write("<script>alert('硅酸盐分解二氧化碳排放量表没有填写！')</script>");
+        }
+
+        else if (!DateIsExist.IsExist("*", "TaoCi_DianLiReLiCO2","QiYeID",QiYeID))
+        {
+            Response.Write("<script>alert('净购入电力和热力消费隐含二氧化碳排放量表没有填写！')</script>");
+        }
+        else
+        {
+            string strConn = System.Configuration.ConfigurationManager.ConnectionStrings["GHG"].ConnectionString;
+            SqlConnection conn = new SqlConnection(strConn);
+            conn.Open();
+            bool b=DateIsExist.IsExist("QiYeID","TaoCi_PaiFangBaoGaoXinXi","QiYeID",QiYeID);
+            if (!b)
+            {
+                string strSql = "insert into TaoCi_PaiFangBaoGaoXinXi(QiYeID,FileName,FileTime,FilePath,NianFen,Code,Count) values('" + QiYeID + "','" + "FileName" + "','" + DateTime.Now.ToString() + "','" + "FilePath" + "','" + DateTime.Now.Year.ToString() + "','" + '1' + "','" +  "1" + "')";
+                SqlCommand cmd = new SqlCommand(strSql, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                Response.Write("<script>alert('报告生成成功！')</script>");
+                
+            }
+            else 
+            {
+                Response.Write("<script>alert('已经生成成功！')</script>");
+            }
+
+        }
+
+    }
+}

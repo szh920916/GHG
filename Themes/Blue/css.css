@@ -1,0 +1,144 @@
+body
+{
+	margin: 0px;
+	font-size: 12px;
+	color: #696969;
+	background-color: #666666;
+}
+a
+{
+	font-size: 12px;
+	color: #696969;
+	text-decoration: none;
+}
+a.more
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #376998;
+	text-decoration: none;
+}
+.white-title
+{
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.yellow-title
+{
+	color: #ff9600;
+	font-size: 13px;
+	font-weight: bold;
+}
+.normal-title
+{
+	color: back;
+	font-size: 13px;
+}
+.font-8
+{
+	font-size: 8px;
+}
+.bg-catalog
+{
+	background-color: #FFFFFF;
+	background-image: url(Themes/Blue/Images/Home/index_catalog_04.jpg);
+	background-repeat: repeat-x;
+	background-position: top;
+}
+#css-left
+{
+	font-size: 12px;
+	line-height: 20px;
+	color: #376998;
+}
+#css-left a
+{
+	font-size: 12px;
+	line-height: 20px;
+	color: #376998;
+	text-decoration: none;
+}
+#menu-nav
+{
+	font-size: 13px;
+	color: #004387;
+	text-decoration: none;
+}
+#menu-nav a
+{
+	font-size: 13px;
+	color: #004387;
+	text-decoration: none;
+}
+#menu-nav a:hover
+{
+	color: #ff5a00;
+	text-decoration: none;
+}
+#menu-list
+{
+	font-size: 13px;
+	color: #ffffff;
+	text-decoration: none;
+}
+#menu-list a
+{
+	font-size: 13px;
+	color: #ffffff;
+	text-decoration: none;
+}
+.line-catalog-04
+{
+	background-image: url(Themes/Blue/Images/Home/line_catalog_04.jpg);
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+#css-cen tr
+{
+	color: #376998;
+	font-size: 13px;
+	background-image: url(Themes/Blue/Images/Home/line_catalog_01.jpg);
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+#css-cen a
+{
+	color: #376998;
+	font-size: 13px;
+}
+
+.bg-menu2-01
+{
+	background-image: url(Themes/Blue/Images/Home/index_news2_01.gif);
+	background-repeat: no-repeat;
+	font-size: 12px;
+	height: 23px;
+	width: 80px;
+}
+.bg-menu2-01 a
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #ff7800;
+	text-decoration: underline;
+}
+
+.bg-menu2-02
+{
+	background-image: url(Themes/Blue/Images/Home/index_news2_06.gif);
+	background-repeat: no-repeat;
+	font-size: 12px;
+	height: 23px;
+	width: 80px;
+	marging-top: 30px;
+}
+
+.bg-menu2-02 a
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #336da4;
+	text-decoration: underline;
+}

@@ -1,0 +1,79 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Modules_GHG_DataCollection_TaoCi_PaiFangShuJuTianBao : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        bool b = DateIsExist.IsExist("*", "Company", "QiYeZuZhiJiGouDaiMa", Session["UserName"].ToString());
+        if (!b)
+        {
+            //提示信息弹不出
+            Response.Write("<script language='JavaScript'>alert('请先完善信息');</script>");
+            Response.Redirect(@"~\Modules\Common\UserAdmin\CompanyEdit.aspx");
+        }
+
+        else if (baoGaoExist())
+        {
+            //Response.Write("<script language='JavaScript'>alert('已存在，不允许重复填报！');</script>");
+            Response.Write("<script language='JavaScript'>alert('已存在，不允许重复填报!');location.href='ChaKanTianBaoShuJu.aspx';</script>");
+        }
+
+    }
+
+    protected bool baoGaoExist()
+    {
+        string QiYeID = Convert.ToString(DateIsExist.XIsExist("QiYeID", "Company", "QiYeZuZhiJiGouDaiMa", Session["UserName"].ToString()));
+        if (DateIsExist.IsExist("*", "TaoCi_PaiFangBaoGaoXinXi", "QiYeID", QiYeID))
+        {
+            string s = Convert.ToString(DateIsExist.XIsExist("Count", "TaoCi_PaiFangBaoGaoXinXi", "QiYeID", QiYeID));
+            int count = Convert.ToInt32(s);
+            if (count == 1)
+            {
+                return true;
+            }
+
+        }
+        return false;
+
+
+    }
+
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("HuoDongShuiPing_HuaShiRanLiao.aspx");
+    }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+         Response.Redirect("TaoCi_HuaShiRanLiaoCO2.aspx");
+    }
+    protected void Button3_Click1(object sender, EventArgs e)
+    {
+        Response.Redirect("HuoDongShuiPing_GongYeShengChan.aspx");
+    }
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("PaiFangYinZi_GuiSuanYanFenJieCO2.aspx");
+    }
+    protected void Button5_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("HuoDongShuiPing_ShengChanYongDian.aspx");
+    }
+    protected void Button6_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("DianLiReLiCO2.aspx");
+    }
+    protected void Button7_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("PaiFangYinZi_HuaShiRanLiao.aspx");
+    }
+    protected void Button8_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("PaiFangLiangHuiZong.aspx"); 
+    }
+}

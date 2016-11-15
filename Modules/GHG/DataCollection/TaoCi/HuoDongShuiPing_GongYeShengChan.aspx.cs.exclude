@@ -1,0 +1,81 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+
+public partial class Modules_GHG_DataCollection_TaoCi_HuoDongShuiPing_GongYeShengChan : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!Page.IsPostBack)
+        {
+
+            int year = DateTime.Now.Year;// 取当前时间年                
+            ListItem yearItem = null;
+            for (int i = year; i > year - 16; i--)//初始化DropDownList年份
+            {
+                yearItem = new ListItem(i.ToString(), i.ToString());
+                DropDownList1.Items.Add(yearItem);
+            }
+        }
+
+    }
+
+
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string strConn = System.Configuration.ConfigurationManager.ConnectionStrings["GHG"].ConnectionString;
+        SqlConnection conn = new SqlConnection(strConn);
+
+        for (int i = 0; i < this.GridView1.Rows.Count; i++)
+        {
+            conn.Open();
+            string QiYeZuZhiJiGouDaiMa = Session["UserName"].ToString();
+            string GongYeShengChanHuoDong = GridView1.Rows[i].Cells[0].Text.ToString();
+            string DanWei = GridView1.Rows[i].Cells[2].Text.ToString();
+
+            string sql1 = "select QiYeID from Company where QiYeZuZhiJiGouDaiMa='" + QiYeZuZhiJiGouDaiMa + "'";
+
+            SqlCommand cmd1 = new SqlCommand(sql1, conn);
+            string QiYeID = cmd1.ExecuteScalar().ToString();
+
+
+            TextBox T = (GridView1.Rows[i].Cells[2].FindControl("TextBox2")) as TextBox;
+            string ShuJu = T.Text;
+            if (ShuJu == "")
+            {
+                Response.Write("<script>alert('请填写完整!')");
+            }
+            else
+            {
+                bool b = DateIsExist.IsExist("*", "TaoCi_GongYeShengChanGuoCheng", "QiYeID", QiYeID, "GongYeShengChanHuoDong", GongYeShengChanHuoDong, "NianFen", this.DropDownList1.SelectedValue.ToString());
+
+                if (b)
+                {
+                    string strSql = "update TaoCi_GongYeShengChanGuoCheng set ShuJu='" + ShuJu + "' where GongYeShengChanHuoDong='" + GongYeShengChanHuoDong + "' and QiYeID='" + QiYeID + "' and NianFen='" + this.DropDownList1.SelectedValue.ToString() + "'";
+
+                    SqlCommand cmdSql = new SqlCommand(strSql, conn);
+                    cmdSql.ExecuteNonQuery();
+                }
+              
+                else
+                {
+                    string strSql = "insert into TaoCi_GongYeShengChanGuoCheng(QiYeID,GongYeShengChanHuoDong,ShuJu,DanWei,NianFen) values('" + QiYeID + "','" + GongYeShengChanHuoDong + "','" + ShuJu + "','" + DanWei + "','" + DateTime.Now.Year.ToString() + "')";
+
+                    SqlCommand cmdSql = new SqlCommand(strSql, conn);
+                    cmdSql.ExecuteNonQuery();
+                }
+            }
+
+            conn.Close();
+
+        }
+        Response.Write("<script>alert('保存成功!');location.href='PaiFangShuJuTianBao.aspx';</script>");
+        
+    }
+}

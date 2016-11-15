@@ -1,0 +1,122 @@
+.Input 
+{
+	border: #888 solid 1px;
+	height: 23px;
+	width: 180px;
+	margin: -1px 0 -1px 0;
+	background: (../../../Themes/Default/Images/TextBG.gif) repeat-x;
+	padding: 2px 0 0 1px;
+}
+
+.ColorFocus
+{
+	border: 1px gold double;
+	background-color: white;
+}
+
+.ColorBlur 
+{
+	border: 1px #CCCCCC double;
+	background-color: white;
+}
+
+
+.ColorBlurRight 
+{
+	border: 1px #CCCCCC double;
+	background-color: white;
+	text-align:right;
+}
+
+.Textarea 
+{
+	border: #888 solid 1px;
+	margin: -1px 0 -1px 0;
+	padding: 2px 0 0 1px;
+}
+
+.Button
+{
+	background-image: url('../../../Themes/Default/Images/Button.gif');
+	background-color: white;
+	cursor: hand;
+	border-style: none;
+	width: 79px;
+	height: 22px;
+	}
+
+.ButtonSmall
+{
+	background-image: url('../../../Themes/Default/Images/ButtonSmall.gif');
+	background-color: white;
+	cursor: hand;
+	border-style: none;
+	width: 50px;
+	height: 22px;
+}
+
+.ButtonLarge
+{
+	background-image: url(../../../Themes/Default/Images/ButtonLarge.gif);
+	background-color: white;
+	cursor: hand;
+	border-style: none;
+	width: 106px;
+	height: 22px;
+}
+.ButtonSingnUp
+{
+	background-image:url(../../../Themes/Default/Images/ButtonSingnUp.gif);
+	background-color: white;
+	cursor: hand;
+	border-style: none;
+	width: 200px;
+	height: 22px;
+}
+.StaffChangePassword
+{
+	background: ghostwhite;
+	border-bottom: darkgray thin;
+	font-family: Verdana;
+	font-size: 10pt;
+	padding-left: 5px;
+	border-right: darkgray thin;
+	padding-right: 5px;
+	border-top: darkgray thin;
+	padding-bottom: 5px;
+	border-left: darkgray thin;
+	padding-top: 5px;
+}
+#Table_PannelMenu {
+    font-size: 12px;
+    width: 100%;
+    border-bottom: 1px solid #2A6584;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    text-align: left;
+    padding-left: 30px;
+}
+#Table_PannelMenu A {
+    height: 28px;
+    text-decoration: none;
+    width: 100px;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 10px;
+}        
+#Table_PannelMenu A:hover {
+    background: #2A6584;
+    font-size: 12px;
+    height: 28px;
+    text-decoration: none;
+    width: 100px;
+    color: #ffffff;
+}
+.UnselectedPanel {
+    background: #DCE4E5;
+    color: #8BA6B5;
+}
+.selectedPanel {
+    background: #2A6584;
+    color: #ffffff;
+}

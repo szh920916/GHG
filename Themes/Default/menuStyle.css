@@ -1,0 +1,31 @@
+.TopGroup
+{
+  cursor:pointer;
+  border: 0px;
+}
+
+.MenuGroup {
+  background-color:#f6f6f6;
+  border:1px solid #666;
+  cursor:default;
+}
+
+.MenuItem {
+  border: 1px solid #f6f6f6;
+  color:#666;
+  font-family:tahoma;
+  font-size:11px;
+  cursor:default;
+}
+
+.MenuItemHover {
+  margin:0;
+  background:#fff url("images/itemHoverBg.gif") repeat-x;
+  color: #000;
+  border: 1px solid #ccc;
+  border-right-color:#b9b9b9;
+  border-bottom-color:#b9b9b9;
+  font-family:tahoma;
+  font-size:11px;
+  cursor:default;
+}

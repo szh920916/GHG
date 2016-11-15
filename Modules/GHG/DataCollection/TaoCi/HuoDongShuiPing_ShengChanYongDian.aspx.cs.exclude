@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+
+public partial class Modules_GHG_DataCollection_TaoCi_HuoDongShuiPing_ShengChanYongDian : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!Page.IsPostBack)
+        {
+
+            int year = DateTime.Now.Year;// 取当前时间年                
+            ListItem yearItem = null;
+            for (int i = year; i > year - 16; i--)//初始化DropDownList年份
+            {
+                yearItem = new ListItem(i.ToString(), i.ToString());
+                DropDownList1.Items.Add(yearItem);
+            }
+        }
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string QiYeZuZhiJiGouDaiMa = Session["UserName"].ToString();
+        string Name = this.Label3.Text;
+        string DianLiang = this.TextBox2.Text;
+        string DanWei = this.Label4.Text;
+        string NianFen = DateTime.Now.Year.ToString();
+        string strConn = System.Configuration.ConfigurationManager.ConnectionStrings["GHG"].ConnectionString;
+        SqlConnection conn = new SqlConnection(strConn);
+        conn.Open();
+
+        string sql = "select QiYeID from Company where QiYeZuZhiJiGouDaiMa='" + QiYeZuZhiJiGouDaiMa + "'";
+        SqlCommand cmd = new SqlCommand(sql, conn);
+        string QiYeID = cmd.ExecuteScalar().ToString();
+        if (DianLiang == "")
+        {
+            Response.Write("<script>alert('请填写数据！');</script>");
+        }
+        else
+        {
+            bool b = DateIsExist.IsExist("*", "TaoCi_ShengChanYongDian", "QiYeID", QiYeID, "Name", Name, "NianFen", this.DropDownList1.SelectedValue.ToString());
+            if (b)
+            {
+                string strSql = "update TaoCi_ShengChanYongDian set DianLiang='" + DianLiang + "' where Name='" + Name + "' and QiYeID='" + QiYeID + "' and NianFen='" + this.DropDownList1.SelectedValue.ToString() + "'";
+
+                SqlCommand cmdSql = new SqlCommand(strSql, conn);
+                cmdSql.ExecuteNonQuery();
+            }
+            
+            else
+            {
+                string strSql = "insert into TaoCi_ShengChanYongDian(QiYeID,Name,DianLiang,DanWei,NianFen) values('" + QiYeID + "','" + Name + "','" + DianLiang + "','" + DanWei + "','" + NianFen + "')";
+                SqlCommand cmdSql = new SqlCommand(strSql, conn);
+                cmdSql.ExecuteNonQuery();
+            }
+        }
+        Response.Write("<script>alert('保存成功!');location.href='PaiFangShuJuTianBao.aspx';</script>");
+    }
+}

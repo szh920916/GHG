@@ -1,0 +1,35 @@
+﻿.TextBoxLineBottom
+{
+    border-right: #000000 0px solid;
+    border-top: #000000 0px solid;
+    border-left: #000000 0px solid;
+    border-bottom: #000000 1px solid;
+    margin-top: 0px;
+}
+.TextBoxLineBottomDatetime
+{
+    border-right: #000000 0px solid;
+    border-top: #000000 0px solid;
+    border-left: #000000 0px solid;
+    border-bottom: #000000 1px solid;
+    margin-top: 0px;
+}
+.TextBoxNumericInput
+{
+    text-align:right;
+}
+.TextBoxStringInput
+{
+    text-align:left;
+}
+th
+{
+    font-weight:bold;
+}
+.gvItem
+{
+    font-size: 10pt;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: right;
+}

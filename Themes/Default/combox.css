@@ -1,0 +1,71 @@
+
+.comboBox 
+{ 
+  border: 1px solid #A6A7AA;   
+  background-color: white; 
+}
+
+.comboBoxHover
+{ 
+  border: 1px solid #555555; 
+  background-color: white; 
+}
+
+.comboDropDown 
+{ 
+  border: 1px solid #868686; 
+  background-color: white; 
+  padding: 1px;
+  padding-right: 0px;
+  cursor: default;
+}
+
+.comboTextBox
+{
+  border: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.comboItem
+{
+  font-family: Verdana; 
+  font-size: 11px; 
+  padding: 3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.comboItemHover
+{
+  background-color: #B2B4BF; 
+  background-image: url(comboItemBg.gif);
+  font-family: Verdana; 
+  font-size: 11px; 
+  border: 1px solid #DBCE99;
+  padding: 2px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.dataCell 
+{ 
+  cursor: default;
+  padding: 3px;
+  border: 1px solid #ffffff; 
+  border-right-color: #EAE9E1; 
+  border-bottom-color: #EAE9E1; 
+  font-family: sans-serif; 
+  font-size: 10px; 
+} 
+.headingCell 
+{ 
+  background-color: #E2E2E2; 
+  border: 1px solid #FFFFFF; 
+  border-right-color: #B5B5B5; 
+  border-bottom-color: #B5B5B5; 
+  padding: 3px;
+  font-family: sans-serif; 
+  font-size: 11px; 
+  font-weight: normal; 
+  text-align: left;
+}

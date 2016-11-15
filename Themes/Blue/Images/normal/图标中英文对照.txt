@@ -1,0 +1,39 @@
+设备状态
+
+icon_use.gif   --//设备使用中
+icon_borrow.gif  --//被借用
+icon_otiose.gif  --//设备闲置中
+icon_maintain.gif  ---//设备维修中
+icon_abandon.gif   ---///已报废
+                    
+icon_Reserve.gif  --//备用中
+icon_Run.gif  --//运行中
+icon_stop.gif  ---//停止运行
+icon_test.gif  ---//测试中
+
+备品借用
+icon_borrow01.gif   --//设备借用拟稿中
+icon_borrow02.gif  ---//设备借用待确认
+icon_borrow03.gif   ---//设备借用中
+icon_borrow04.gif   ---//设备已归还
+
+
+备品出入库记录
+icon_in.gif   --//入库
+icon_draw.gif --//领用
+
+备品性质
+icon_fixed.gif --//固定资产
+icon_fixed.gif ---//普通物资
+
+备品来源
+icon_buy.gif  --//购买
+icon_recycle.gif  --//回收
+
+
+备品领用类型
+icon_public.gif   --///公用
+icon_private.gif   --//个人使用
+
+icon_download.gif  --//软件下载图标
+icon_setup.gif    -- //软件安装图标

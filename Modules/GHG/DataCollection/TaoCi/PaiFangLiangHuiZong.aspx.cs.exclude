@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+
+
+public partial class Modules_GHG_DataCollection_TaoCi_PaiFangLiangHuiZong : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        this.TextBox1.Text=Session["UserName"].ToString();
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string strConn = System.Configuration.ConfigurationManager.ConnectionStrings["GHG"].ConnectionString;
+        SqlConnection conn = new SqlConnection(strConn);
+        conn.Open();
+
+        string QiYeZuZhiJiGouDaiMa = this.TextBox1.Text;
+        string QiYeIDSql = "select QiYeID from Company where QiYeZuZhiJiGouDaiMa='" + QiYeZuZhiJiGouDaiMa + "'";
+        SqlCommand QiYeIDcmd = new SqlCommand(QiYeIDSql, conn);
+        string QiYeID = QiYeIDcmd.ExecuteScalar().ToString();
+
+        string str1 = "select HuaShiRanLiaoPaiFangLiang from TaoCi_CO2HuiZongBiao where QiYeID='" + QiYeID + "'";
+        SqlCommand cmd1 = new SqlCommand(str1, conn);
+        string HuaShiRanLiaoPaiFangLiang = cmd1.ExecuteScalar().ToString();
+
+        string str2 = "select GongYeShengChanGuoChengPaiFangLiang from TaoCi_CO2HuiZongBiao where QiYeID='" + QiYeID + "'";
+        SqlCommand cmd2 = new SqlCommand(str2, conn);
+        string GongYeShengChanGuoChengPaiFangLiang = cmd2.ExecuteScalar().ToString();
+
+        string str3 = "select DianLiPaiFangLiang from TaoCi_CO2HuiZongBiao where QiYeID='" + QiYeID + "'";
+        SqlCommand cmd3 = new SqlCommand(str3, conn);
+        string DianLiPaiFangLiang = cmd3.ExecuteScalar().ToString();
+        if (HuaShiRanLiaoPaiFangLiang==""|DianLiPaiFangLiang==""|GongYeShengChanGuoChengPaiFangLiang=="")
+        {
+            Response.Write("<script>alert('数据表填写不完整！');location.href='PaiFangShuJuTianBao.aspx';</script>");
+            Response.End();
+        }
+        this.GridView1.Rows[0].Cells[1].Text = (double.Parse(HuaShiRanLiaoPaiFangLiang) + double.Parse(GongYeShengChanGuoChengPaiFangLiang) + double.Parse(DianLiPaiFangLiang)).ToString();
+        this.GridView1.Rows[1].Cells[1].Text = (double.Parse(HuaShiRanLiaoPaiFangLiang)).ToString();
+        this.GridView1.Rows[2].Cells[1].Text = (double.Parse(GongYeShengChanGuoChengPaiFangLiang)).ToString();
+        this.GridView1.Rows[3].Cells[1].Text = (double.Parse(DianLiPaiFangLiang)).ToString();
+
+        conn.Close();
+    }
+}

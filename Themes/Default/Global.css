@@ -1,0 +1,44 @@
+body
+{
+    font-family: ËÎÌו;
+}
+
+td
+{
+	font-size: 10pt;
+}
+
+table
+{
+	cursor: default;
+}
+
+button
+{
+    border-right: #7b9ebd 1px solid;
+    padding-right: 5px;
+    border-top: #7b9ebd 1px solid;
+    padding-left: 5px;
+    font-size: 10pt;
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#EBEBE5);
+    border-left: #7b9ebd 1px solid;
+    cursor: hand;
+    border-bottom: #7b9ebd 1px solid;
+    font-family: Tahoma, ËÎÌו;
+}
+
+table.stdTable
+{
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+}
+
+.leftBlank
+{
+    padding-left:8px;
+}
+.rightBlank
+{
+    padding-right:8px;
+}

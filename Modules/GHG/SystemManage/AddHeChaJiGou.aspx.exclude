@@ -1,0 +1,31 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddHeChaJiGou.aspx.cs" Inherits="Modules_GHG_AddHeChaJiGou" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<script runat="server">
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+    }
+</script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+     <form id="form1" runat="server">
+    <asp:Label ID="Label1" runat="server" Text="核查机构代码："></asp:Label>
+    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label2" runat="server" Text="核查机构名称："></asp:Label>
+    
+    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    
+    <p>
+        &nbsp;</p>
+    <p>
+        <asp:Button ID="Button1" runat="server"  Text="添加" onclick="Button1_Click1" />
+    </p>
+    </form>
+</body>
+</html>

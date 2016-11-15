@@ -1,0 +1,83 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+
+public partial class Modules_GHG_AddHeChaJiGou : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click1(object sender, EventArgs e)
+    {
+        string strConn = System.Configuration.ConfigurationManager.ConnectionStrings["GHG"].ConnectionString;
+       
+        SqlConnection conn = new SqlConnection(strConn);
+        conn.Open();
+
+
+        string d = DateTime.Now.Year.ToString();
+        string HeChaQiYeZuZhiJiGouDaiMa = TextBox1.Text;
+        string HeChaJiGouMingCheng = TextBox2.Text;
+        string cmdtext1 = "insert into HeChaJiGou(HeChaQiYeZuZhiJiGouDaiMa,HeChaJiGouMingCheng) values('" + HeChaQiYeZuZhiJiGouDaiMa + "','" + HeChaJiGouMingCheng + "');select @@identity";
+
+        if (TextBox1.Text == "" || TextBox2.Text == "")
+        {
+            Response.Write("<script>alert('不能为空！');</script>");
+
+            this.TextBox1.Focus();
+        }
+        else
+        {
+            string cmdtext3 = "select count(*) from HeChaJiGou where HeChaQiYeZuZhiJiGouDaiMa = " + HeChaQiYeZuZhiJiGouDaiMa + "";
+            SqlCommand cmd3 = new SqlCommand(cmdtext3, conn);
+            if (int.Parse(cmd3.ExecuteScalar().ToString()) > 0)
+            {
+                Response.Write("<script>alert('记录已经存在！');</script>");
+                this.TextBox1.Focus();
+                this.TextBox1.Text = "";
+            }
+            else
+            {
+                try
+                {
+                    SqlCommand cmd1 = new SqlCommand(cmdtext1, conn);
+                    string str=cmd1.ExecuteScalar().ToString();
+                    string cmdtext2 = "insert into HeChaBaoGaoXinXi(JiGouBianHao,Code,NianFen) values('" + str + "','" + 0 + "','" + d + "')";
+                    new SqlCommand(cmdtext2, conn).ExecuteNonQuery();
+
+                    Response.Write("<script>alert('添加成功！');</script>");
+                    this.TextBox1.Text = "";
+                    this.TextBox2.Text = "";
+                    this.TextBox1.Focus();
+
+                }
+                catch (Exception error)
+                {
+                    Response.Write(error.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
+//string cmdtext = "select JiGouBianHao from HeChaJiGou where HeChaQiYeZuZhiJiGouDaiMa " + HeChaQiYeZuZhiJiGouDaiMa + "";
+//SqlCommand cmd = new SqlCommand(cmdtext, conn);
+//string s = cmd.ExecuteScalar().ToString();
+
+//string cmdtext2 = "insert into HeChaBaoGaoXinXi(JiGouBianHao,Code,NianFen) values('" + s + "','" + 0 + "','" + d + "')";
+//SqlCommand cmd2 = new SqlCommand(cmdtext2, conn);
+//cmd2.ExecuteNonQuery();

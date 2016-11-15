@@ -1,0 +1,158 @@
+/*
+页面显示菜单样式
+*/
+
+table.ydMenuCssParentTable
+{
+	border-bottom: 1px solid #DD740B;
+	margin-bottom: 10px;
+	background-color:Menu;
+}
+
+table.ydMenuCssParentTab
+{
+	border-bottom: 1px solid #DD740B;
+	margin-bottom: 10px;
+	background-color:Menu;
+}
+
+td.ydMenuCssParentLefttd
+{
+	text-indent: 15pt;
+	padding-bottom: 4pt;
+	background: url(../../../Themes/Blue/Images/Themes/tableleftimage.gif) no-repeat left center;
+	vertical-align: bottom;
+	font-weight: bold;
+}
+
+table.ydMenuCss
+{
+	font-size: 12px;
+	tdne-height: normal;
+}
+table.ydMenuCss tr
+{
+	padding: 10px 10px 0 50px;
+	tdst-style: none;
+	margin: 0px;
+}
+
+table.ydMenuCss td
+{
+	display: intdne;
+	margin: 0;
+	padding: 0;
+}
+
+
+table.ydMenuCss a
+{
+	float: left;
+	background: url(../../../Themes/Blue/Images/Themes/tableftI.gif) no-repeat left top;
+	margin: 0;
+	padding: 0 0 0 5px;
+	text-decoration: none;
+}
+
+table.ydMenuCss a span
+{
+	float: left;
+	display: block;
+	background: url(../../../Themes/Blue/Images/Themes/tabrightI.gif) no-repeat right top;
+	padding: 5px 15px 4px 6px;
+	color: #000000;
+}
+
+/* Commented Backslash Hack hides rtre from IE5-Mac \*/
+table.ydMenuCss a span
+{
+	float: none;
+}
+/* End IE5-Mac hack */
+table.ydMenuCss a:hover span
+{
+	color: #000000;
+}
+
+table.ydMenuCss a:hover
+{
+	background-position: 0% -42px;
+	filter: blendTrans(duration=0.8);
+	filter: alpha(opacity=100,FinishOpacity=20,style=3,starX=10,finishX=30,FinishY=50);
+}
+table.ydMenuCss a:hover span
+{
+	background-position: 100% -42px;
+}
+
+table.ydMenuCss a.currentmenu
+{
+	background-position: 0% -42px;
+}
+table.ydMenuCss a span.currentmenu
+{
+	background-position: 100% -42px;
+}
+
+/*标签类样式*/
+.ydTagBgGround
+{
+	background: url(../../../Themes/Blue/Images/Themes/bg_menu.gif);
+}
+
+table.ydMenuCssTab td
+{
+	display: intdne;
+	margin: 0;
+	padding: 0;
+}
+
+table.ydMenuCssTab a
+{
+	float: left;
+	background: url(../../../Themes/Blue/Images/Themes/tableftTab.gif) no-repeat left top;
+	margin: 0;
+	padding: 0 0 0 5px;
+	text-decoration: none;
+}
+
+table.ydMenuCssTab a span
+{
+	float: left;
+	display: block;
+	background: url(../../../Themes/Blue/Images/Themes/tabrightTab.gif) no-repeat right top;
+	padding: 5px 15px 4px 6px;
+	color: #FFFFFF;
+}
+
+/* Commented Backslash Hack hides rtre from IE5-Mac \*/
+table.ydMenuCssTab a span
+{
+	float: none;
+}
+/* End IE5-Mac hack */
+table.ydMenuCssTab a:hover span
+{
+	color: #000000;
+}
+
+table.ydMenuCssTab a:hover
+{
+	background-position: 0% -42px;
+	filter: blendTrans(duration=0.8);
+	filter: alpha(opacity=100,FinishOpacity=20,style=3,starX=10,finishX=30,FinishY=50);
+}
+table.ydMenuCssTab a:hover span
+{
+	background-position: 100% -42px;
+}
+
+table.ydMenuCssTab a.currentmenu
+{
+	background-position: 0% -42px;
+}
+table.ydMenuCssTab a span.currentmenu
+{
+	background-position: 100% -42px;
+}
+

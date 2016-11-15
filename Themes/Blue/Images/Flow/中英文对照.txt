@@ -1,0 +1,13 @@
+流程节点状态
+icon_move.gif  --//转交
+icon_reBack.gif -- //退回
+icon_Start.gif -- //拟稿
+icon_censor.gif --//审批
+icon_complete.gif --//完成归档
+icon_Invite.gif --//会审
+icon_Stop.gif -- //停止 
+                 
+送修状态
+icon_wait.gif  --//待送修
+icon_repair.gif -- //维修中
+icon_completed.gif --//已完成

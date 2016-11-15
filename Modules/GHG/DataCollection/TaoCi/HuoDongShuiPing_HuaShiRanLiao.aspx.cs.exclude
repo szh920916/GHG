@@ -1,0 +1,78 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Data;
+
+public partial class Modules_GHG_DataCollection_TaoCi_Default : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!Page.IsPostBack)
+        {
+
+            int year = DateTime.Now.Year;// 取当前时间年                
+            ListItem yearItem = null;
+            for (int i = year; i > year - 16; i--)//初始化DropDownList年份
+            {
+                yearItem = new ListItem(i.ToString(), i.ToString());
+                DropDownList1.Items.Add(yearItem);
+            }
+        }
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        string strConn = System.Configuration.ConfigurationManager.ConnectionStrings["GHG"].ConnectionString;
+        SqlConnection conn = new SqlConnection(strConn);
+        conn.Open();
+        for (int i = 0; i < this.GridView1.Rows.Count; i++)
+        {
+
+            string QiYeZuZhiJiGouDaiMa = Session["UserName"].ToString();
+            string s = GridView1.Rows[i].Cells[0].Text.ToString();
+            string sql = "select RanLiaoID from HuaShiRanLiao where RanLiaoMingCheng='" + s + "'";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            string RanLiaoID = cmd.ExecuteScalar().ToString();
+            string sql1 = "select QiYeID from Company where QiYeZuZhiJiGouDaiMa='" + QiYeZuZhiJiGouDaiMa + "'";
+
+            SqlCommand cmd1 = new SqlCommand(sql1, conn);
+            string QiYeID = cmd1.ExecuteScalar().ToString();
+            TextBox T = (GridView1.Rows[i].Cells[2].FindControl("TextBox2")) as TextBox;
+            string RanShaoLiang = T.Text;
+
+            if (RanShaoLiang == "")
+            {
+                
+
+            }
+            else
+            {
+                bool b = DateIsExist.IsExist("*", "TaoCi_HuaShiRanLiaoPaiFangLiang", "QiYeID", QiYeID, "RanLiaoID", RanLiaoID, "NianFen", this.DropDownList1.SelectedValue.ToString());
+                if (b)
+                {
+                    string strSql = "update TaoCi_HuaShiRanLiaoPaiFangLiang set RanShaoLiang='" + RanShaoLiang + "' where RanLiaoID='" + RanLiaoID + "' and QiYeID='" + QiYeID + "' and NianFen='" + this.DropDownList1.SelectedValue.ToString() + "'";
+
+                    SqlCommand cmdSql = new SqlCommand(strSql, conn);
+                    cmdSql.ExecuteNonQuery();
+                }
+                else
+                {
+                    string strSql = "insert into TaoCi_HuaShiRanLiaoPaiFangLiang(RanLiaoID,QiYeID,RanShaoLiang,NianFen) values('" + RanLiaoID + "','" + QiYeID + "','" + RanShaoLiang + "','" + this.DropDownList1.SelectedValue.ToString() + "')";
+
+                    SqlCommand cmdSql = new SqlCommand(strSql, conn);
+                    cmdSql.ExecuteNonQuery();
+                }
+               
+            }
+
+
+        }
+        conn.Close();
+        Response.Write("<script>alert('保存成功!');location.href='PaiFangShuJuTianBao.aspx';</script>");
+    }
+}

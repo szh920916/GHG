@@ -1,0 +1,227 @@
+.gCmp-type li, .g-toolbartabs li, .ico-dlg, .ico-act-default, .g-addr .arr, .g-menu .arr, .btn, .btn span, .btn .arr, .gMtable, .core, .core a, .gSidebar .cnav li, .gTop .tab-ctrl .tdl, .gTop .tab-ctrl .tdr, .gTop .tab-ctrl td.tdo a, .g-contact .cldThis, .gTop .tab-ctrl .close-all, .fn-bg
+{
+    background-image: url(images/bg.png);
+    background-repeat: no-repeat;
+}
+.gMtable
+{
+    background-repeat: repeat-y;
+}
+.tip-popup-dialog, .gRead-dialog .gRead-reply .ipt-t-dialog, .gRead-dialog .dialog, .gRead-dialog .gRead-reply .input, .g-probar span, .gRead-gg, .gWel-tab .tabs, .gCmp-side .tabs li, .g-toolbar, .gFToptd .bd-bottom, .g-table-comm thead tr, .gTop .tab-ctrl .ct, .gTop .tab-ctrl .tdo, .g-tabnav, .fn-bgx
+{
+    background-image: url(images/bgx.png);
+    background-repeat: repeat-x;
+}
+.ico-loading
+{
+    background-image: url(../img/skin_163blue/loading_16x16.gif);
+    background-repeat: no-repeat;
+}
+.ico-loading-big
+{
+    background-image: url(../img/skin_163blue/loading.gif);
+    background-repeat: no-repeat;
+}
+.ico-mail-checking
+{
+    background-image: url(../img/skin_163blue/checkmail.gif);
+    background-repeat: no-repeat;
+}
+.txt-link, a
+{
+    color: #005590;
+}
+.gTop .links .t-color1
+{
+    color: #D90000;
+}
+.gTop .links .t-color2
+{
+    color: #16960E;
+}
+.gTop .tab-ctrl table td.ct
+{
+    color: #7392A8;
+}
+.gTop .tab-ctrl table.on td.ct
+{
+    color: #FFF;
+}
+.txt-c-match, .gIbx .g-table-comm b
+{
+    color: #16960E;
+}
+.btn-dft-gl, .btn-dft-gc, .btn-dft-gr
+{
+    border-color: #969696;
+}
+.btn-dft-gl-hover, .btn-dft-gc-hover, .btn-dft-gr-hover
+{
+    border-color: #656565;
+}
+.btn-dft-gl-hover-txt, .btn-dft-gc-hover-txt, .btn-dft-gr-hover-txt
+{
+    border-left-color: #656565;
+}
+.btn-dft-gl-hover-arr, .btn-dft-gc-hover-arr, .btn-dft-gr-hover-arr
+{
+    border-right-color: #656565;
+}
+.btn-dft-gl-active, .btn-dft-gc-active, .btn-dft-gr-active
+{
+    border-color: #6A6A6A;
+}
+.btn-dft-gl-active-txt, .btn-dft-gc-active-txt, .btn-dft-gr-active-txt
+{
+    border-left-color: #6A6A6A;
+}
+.btn-dft-gl-active-arr, .btn-dft-gc-active-arr, .btn-dft-gr-active-arr
+{
+    border-right-color: #6A6A6A;
+}
+.btn-sml
+{
+    border-color: #6C92AD;
+}
+.bg-main-1
+{
+    background-color: #67B0E4;
+}
+.bg-main-2
+{
+    background-color: #1F5699;
+}
+.g-box-hd, .gCmp-att .attlist, .bg-side
+{
+    background-color: #E9F0F4;
+}
+.gWel-minibox:hover, .gCmp-sndr .showhide-cc, .g-addr-hover, .gOpt-qm-sidebar ul li, .gOpt-qm-sidebar ul li strong, .bg-flash, .tip-normal, .gIbx-tablayout .stick, .bg-cont
+{
+    background-color: #F6F9FC;
+}
+.bg-highlight
+{
+    background-color: #C1E0FF;
+}
+.gSidebar .cnav li.over, .g-AT-inner .hd, .gCnta-selected ul li, .content-side-mini .cont .tit, .bg-shadow
+{
+    background-color: #DBE8F2;
+}
+.g-menu
+{
+    border-color: #DBE8F2;
+}
+.gRead-dialog .dialog-hide .txt-tips, .gRead-dialog .dialog-hide, .gRead-dialog .dialog-new .gRead-info, .gRead-dialog .dialog-hover .gRead-info, .gCmp-side .ltrpaper .active, .g-cntalist .srch .result a:hover, .gSys-tips-alert, .gCmp-sendtime, .bg-tips
+{
+    background-color: #FFFFE1;
+}
+.gWel-safe-high:hover, .g-file-cmplt, .gSys-tips-succ, .tip-popup-succ, .bg-succ
+{
+    background-color: #F1FFE3;
+}
+.gWel-safe-low:hover, .g-file-err, .gSys-tips-err, .tip-popup-err, .g-addrs .g-addr-err-hover, .bg-err
+{
+    background-color: #FFEAEA;
+}
+.g-probar span, .bg-pro
+{
+    background-color: #A5DD3D;
+}
+.bg-pro-alert
+{
+    background-color: #D90000;
+}
+.g-addrs .g-addr-active, .g-menu li a:hover, .g-menu li a.hover, .g-menu li a:hover span, .g-menu li a.hover span, .g-menu-auto .hover, .g-cntalist .grpmbr a:hover, .gIbx-mbox-active, .gCnta-SB-wrap ul li a:hover, .gCnta-SB-wrap ul li.on a, .g-tabnav a.moson, .optfrm-left a:hover, .optfrm-left a.on, .gSb-sfolder .mfolder .intro, .bg-hover
+{
+    background-color: #5D99CE;
+    color: #fff !important;
+}
+.ln-c-dark
+{
+    border-color: #6C92AD;
+}
+.g-title-tabs .tabs li, .ln-c-mid
+{
+    border-color: #9CB8CC;
+}
+.ln-c-light
+{
+    border-color: #C5D2DA;
+}
+.gRead-reply .input, .ipt-t-dft, .g-editor, .gWel-tab .tabs, .gWel-tab .tabs li, .gWel-tab .pans, .gCmp-side .tabs li, .gCmp-side .pans, .gOpt-qm-sidebar ul li, .bdr-c-dark
+{
+    border-color: #6C92AD;
+}
+.simletter, .g-box, .tip-normal, .bdr-c-mid
+{
+    border-color: #9CB8CC;
+}
+.g-imgbar, .gSys-inner-savecnta .moveto, .gSys-inner-addpic .tabs li, .gSys-inner-addpic .pans, .g-addr-move, .gWel-minibox:hover, .gCmp-side .ltrpaper .active, .g-cntalist .srch li, .tip-popup, .g-file, .gCmp-sendtime, .g-addrs .g-addr-hover, .bdr-c-light
+{
+    border-color: #C5D2DA;
+}
+.g-addrs .g-addr-err-hover, .tip-popup-err, .bdr-c-err
+{
+    border-color: #D2AEAE;
+}
+.tip-popup-succ, .bdr-c-succ
+{
+    border-color: #A8BD93;
+}
+.g-menu-inner, .g-AT-inner, .g-AT-inner .hd, .g-AT-inner .hd li
+{
+    border-color: #9CB8CC;
+}
+.g-table-comm .over, .g-select-box .over
+{
+    background-color: #FFFFE1;
+}
+.g-table-comm .chked, .g-select-box .chked
+{
+    background-color: #FFFFCA;
+}
+.theme-tr
+{
+    background: url(../img/skin_163blue/t_tr.jpg) no-repeat top right;
+}
+.musicLst .playing, .musicLst .gp .clsFd, .musicLst .gp .opnFd, .musicLst, .gTop .music .screen, .gTop .music .mbar, .gTop .music .mbar_0, .gTop .music .mbar_2, .gTop .music .btnMbar
+{
+    background-image: url(http://mimg.126.net/musicbox/js35/skin_163blue/music_mini.gif);
+    background-repeat: no-repeat;
+}
+.gSb-cnav-tit .ext, .gSb-cnav-tit .ext a, .gSb-sfolder .mfolder .opt, .gSb-sfolder .mfolder .opt a
+{
+    color: #AEBFD9;
+}
+.g-toolbartabs, .gCmp-type
+{
+    border-color: #CBD7DF;
+}
+.gTop .tab-ctrl
+{
+    top: 45px;
+}
+.g-tabnav a.on
+{
+    background: #fff;
+}
+.gSb-sfolder li .ct .farr
+{
+    color: #ADC3D7;
+}
+.gSb-sfolder .mfolder .hdfolder:hover
+{
+    background-color: #DBE8F2;
+}
+.g-dxgg
+{
+    background-color: #F7F7F7;
+    border-bottom-color: #E4E4E4;
+}
+.gRead-gg
+{
+    background-color: #F7F7F7;
+    background-image: none;
+    height: 31px;
+    line-height: 31px;
+}

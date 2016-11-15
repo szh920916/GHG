@@ -1,0 +1,330 @@
+body
+{
+	margin-top: 0px;
+	margin-left: 5px;
+	margin-right: 2px;
+	font-size: 9pt;
+	word-break: break-all;
+	color: #000000;
+}
+td
+{
+	font-size: 9pt;
+}
+th
+{
+	font-size: 9pt;
+}
+hr
+{
+	height: 1px;
+	color: Red;
+}
+/*普通表格样式,线条合并*/
+table
+{
+	border-collapse: collapse;
+}
+
+
+/*- 结构类样式--------------------------- */
+/*头文件背景*/
+.bg-top
+{
+	height: 80px;
+	background-image: url(../../style/style1/top.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	background-color: #89e7ff;
+}
+/*左边文件背景*/
+.bg-left
+{
+	background-image: url(../../style/style1/bg_left.gif);
+	background-repeat: repeat-x;
+	background-position: top;
+	background-color: #4ec0f2;
+}
+/*虚线条*/
+.line-dot
+{
+	height: 6px;
+	background-image: url(../../Style/sys/normal/line1.gif);
+	background-repeat: repeat-x;
+}
+
+/*- 列表页样式--------------------------- */
+/*列表表格
+.list-table{ border-left-width: 1px; border-top-width: 1px; border-left-style: solid; border-top-style: solid; border-left-color: #94bbd1; border-top-color: #94bbd1; }
+.list-table th{ height:30px; border-left-width: 1px; border-top-width: 1px; border-left-style: solid; border-top-style: solid; border-left-color: #94bbd1; border-top-color: #94bbd1; }
+列表头
+.list-header
+{
+height:24px; 
+background-image:url(../../style/style1/bg_table_title.gif); 
+background-repeat:repeat-x; 
+font-size:12px; 
+font-weight:bold; 
+color:#004a9e; 
+border-right-width: 1px; 
+border-bottom-width: 1px; 
+border-right-style: solid; 
+border-bottom-style: solid; 
+border-right-color: #94bbd1; 
+border-bottom-color: #94bbd1; 
+background-color: #f6f9ff; 
+background-position: bottom; 
+
+}
+DataList列表头内部表格样式
+.list-header table{ font-size:12px; font-weight:bold; color:#004a9e; }
+.list-header a{text-decoration:none; color:#004a9e;text-decoration: underline;}
+/*列表交替行
+.list-Item{ border-right-width: 1px; border-bottom-width: 1px; border-right-style: solid; border-bottom-style: solid; border-right-color: #94bbd1; border-bottom-color: #94bbd1; background-color:#ffffff;}
+.list-Alter{ border-right-width: 1px; border-bottom-width: 1px; border-right-style: solid; border-bottom-style: solid; border-right-color: #94bbd1; border-bottom-color: #94bbd1; background-color:#edf8fc;}
+.list-Select{ border-right-width: 1px; border-bottom-width: 1px; border-right-style: solid; border-bottom-style: solid; border-right-color: #ffffcc; border-bottom-color: #ffffcc; background-color:#ffffcc;}
+*/
+
+/*针对表格头部背景图*/
+.list-header
+{
+	background-repeat: repeat-x;
+	background-repeat: repeat;
+	background-image: url(../../style/style1/bg_table_title.gif);
+}
+
+/*针对GridView头部排序文字下划线*/
+.list-header a
+{
+	text-decoration: underline;
+}
+/*针对DataList头部表格内文字*/
+.list-header table
+{
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+}
+
+/*- 普通页样式--------------------------- */
+/*普通表格*/
+.table
+{
+	border-left-width: 1px;
+	border-top-width: 1px;
+	border-left-style: solid;
+	border-top-style: solid;
+	border-left-color: #94bbd1;
+	border-top-color: #94bbd1;
+	background-color: #edf8fd;
+}
+
+/*特殊表格,仅显示top表格线*/
+.table-top
+{
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #94bbd1;
+}
+
+/*普通表格菜单列*/
+.td-title
+{
+	padding: 2px 4px 0px 2px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #94bbd1;
+	border-bottom-color: #94bbd1;
+	background-color: #edf8fc;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+}
+
+/*普通表格内容列*/
+.td-content
+{
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #94bbd1;
+	border-bottom-color: #94bbd1;
+	background-color: #ffffff;
+	empty-cells: show;
+	padding: 3px 2px 0px 4px;
+}
+
+
+/*- 打印页样式--------------------------- */
+/*普通表格*/
+.ptable
+{
+	border-collapse: collapse;
+	border-top: solid 1px #000000;
+	border-left: solid 1px #000000;
+}
+
+.ptd-content
+{
+	font-size: 10pt;
+}
+
+
+/*普通表格菜单列(字体大小为9)*/
+.ptd
+{
+	border-collapse: collapse;
+	border-bottom: solid 1px #000000;
+	border-right: solid 1px #000000;
+	font-size: 9pt;
+}
+
+/*普通表格菜单列(字体大小为12)*/
+.ptdsize
+{
+	border-collapse: collapse;
+	border-bottom: solid 1px #000000;
+	border-right: solid 1px #000000;
+	font-size: 11pt;
+}
+
+
+
+/*- 内容页样式--------------------------- */
+/*内容页标题*/
+.font-title
+{
+	font-size: 20px;
+	font-weight: bold;
+	color: #000000;
+}
+/*内容页正文*/
+.font-content
+{
+	padding: 4px 4px;
+	line-height: 22px;
+}
+
+/*- 静态字体类样式--------------------------- */
+.font-strong-14
+{
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+}
+.font-14
+{
+	font-size: 14px;
+	color: #000000;
+}
+.font-18
+{
+	font-size: 18px;
+	color: #000000;
+}
+
+
+
+/*- 链接字体类样式--------------------------- */
+a
+{
+	text-decoration: none;
+	color: #003399;
+}
+a:hover
+{
+	color: #5c6d71;
+	text-decoration: underline;
+}
+
+a.a-mainnav-menu
+{
+}
+a.a-subnav-menu
+{
+	font-size: 14px;
+	color: #003d9e;
+}
+a.a-top-link
+{
+	font-size: 12px;
+	color: #044b9a;
+}
+
+
+/*- 表单类样式--------------------------- */
+/*.button
+{
+	border: 1px solid #ffffff;
+	padding: 1px 0px;
+	color: #003F60;
+	filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#66bcfe);
+}*/
+.Button
+{
+	background-image: url('../../../Themes/Default/Images/Button.gif');
+	background-color: white;
+	cursor: hand;
+	border-style: none;
+	width: 79px;
+	height: 22px;
+}
+
+.ButtonSmall
+{
+	background-image: url('../../../Themes/Default/Images/ButtonSmall.gif');
+	background-color: white;
+	cursor: hand;
+	border-style: none;
+	width: 50px;
+	height: 22px;
+}
+
+.ButtonLarge
+{
+	background-image: url(../../../Themes/Default/Images/ButtonLarge.gif);
+	background-color: white;
+	cursor: hand;
+	border-style: none;
+	width: 106px;
+	height: 22px;
+}
+.textbox
+{
+	border: 1px Solid #84b0c7;
+	filter: Light;
+	filter: Progid:dximagetransform.microsoft.gradient(gradienttype=0, Startcolorstr=#ffffff, Endcolorstr=#dfeffc);
+}
+
+
+fieldset
+{
+	margin: 0 5 0 5;
+	padding: 10 10 10 10;
+}
+
+
+img
+{
+	border-style: none;
+}
+
+.tdprint
+{
+	border-top: #000000 1px solid;
+	border-left: #000000 1px solid;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.tableprint
+{
+	border-right: #000000 1px solid;
+	border-bottom: #000000 1px solid;
+}
+

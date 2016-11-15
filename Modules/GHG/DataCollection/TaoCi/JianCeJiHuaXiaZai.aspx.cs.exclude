@@ -1,0 +1,112 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.IO;
+
+public partial class Modules_GHG_DataCollection_TaoCi_JianCeJiHuaXiaZai : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        bool b = DateIsExist.IsExist("*", "Company", "QiYeZuZhiJiGouDaiMa", Session["UserName"].ToString());
+        if (!b)
+        {
+            //提示信息弹不出
+            Response.Write("<script language='JavaScript'>alert('请先完善信息');</script>");
+            Response.Redirect(@"~\Modules\Common\UserAdmin\CompanyEdit.aspx");
+
+        }
+        else
+        {
+            int year = DateTime.Now.Year;// 取当前时间年                
+            ListItem yearItem = null;
+
+            //向过去的年份循环100年
+            for (int i = year; i > year - 10; i--)
+            {
+                yearItem = new ListItem(i.ToString(), i.ToString());
+                DropDownList1.Items.Add(yearItem);//ddyear为下拉框id
+            }
+
+        }
+        
+
+    }
+
+    protected void Button1_Click1(object sender, EventArgs e)
+    {
+        string QiYeZuZhiJiGouDaiMa = Session["UserName"].ToString();
+        string Nian = DropDownList1.SelectedValue.ToString();
+        string s = DropDownList2.SelectedValue.ToString();
+        string p = QiYeZuZhiJiGouDaiMa + "-" + DateTime.Now.Year;
+        int QiYeID=Convert.ToInt32( DateIsExist.XIsExist("QiYeID","Company","QiYeZuZhiJiGouDaiMa",QiYeZuZhiJiGouDaiMa));
+        bool b = DateIsExist.IsExist("*", "JianCeJiHuaShangChuan","QiYeID",QiYeID.ToString());
+        if (!b)
+        {
+            Response.Write("<script>alert('文件不存在！')</script>");
+        }
+        else
+        {
+            string FileType = DateIsExist.XIsExist("FileType", "JianCeJiHuaShangChuan","QiYeID",QiYeID.ToString()).ToString();
+            //string filetype=Session["FileType"].ToString();
+            string fileURL = this.Server.MapPath("./监测计划/" + Nian + "/" + s + "/" + p + FileType + "");//文件路径，可用相对路径
+            FileInfo fileInfo = new FileInfo(fileURL);
+            Response.Clear();
+            Response.AddHeader("content-disposition", "attachment;filename=" + Server.UrlEncode(fileInfo.Name.ToString()));//文件名
+            Response.AddHeader("content-length", fileInfo.Length.ToString());//文件大小
+            Response.ContentType = "application/octet-stream";
+            Response.ContentEncoding = System.Text.Encoding.Default;
+            Response.WriteFile(fileURL);
+        }
+        
+
+
+
+
+        ////string filePath = Server.MapPath("监测计划" + "\\" + Nian + "\\" + s + "\\" + p);
+
+        //string filePath = Server.MapPath("../监测计划/2016/初版/888888-2016.txt");
+
+        //if (System.IO.File.Exists(filePath))
+        //{
+        //    FileInfo file = new FileInfo(filePath);
+        //    Response.ContentEncoding = System.Text.Encoding.GetEncoding("UTF-8"); //解决中文乱码
+        //    Response.AddHeader("Content-Disposition", "attachment; filename=" + Server.UrlEncode(file.Name)); //解决文件名乱码
+        //    Response.AddHeader("Content-length", file.Length.ToString());
+        //    Response.ContentType = "appliction/octet-stream";
+        //    Response.WriteFile(file.FullName);
+        //    Response.End();
+        //}
+        //try
+        //{
+
+        //    string QiYeZuZhiJiGouDaiMa = Session["UserName"].ToString();
+        //    string Nian = DropDownList1.SelectedValue.ToString();
+        //    string s = DropDownList2.SelectedValue.ToString();
+        //    string p = QiYeZuZhiJiGouDaiMa + "-" + DateTime.Now.Year;
+        //    string path = Server.MapPath("监测计划" + "\\" + Nian + "\\" + s + "\\" + p);
+
+        //    System.IO.FileInfo file = new System.IO.FileInfo(path);
+        //    Response.Clear();
+        //    Response.Charset = "GB2312";
+        //    Response.ContentEncoding = System.Text.Encoding.UTF8;
+        //    // 添加头信息，为"文件下载/另存为"对话框指定默认文件名
+        //    Response.AddHeader("Content-Disposition", "attachment; filename=" + Server.UrlEncode(p));
+        //    // 添加头信息，指定文件大小，让浏览器能够显示下载进度
+        //    Response.AddHeader("Content-Length", file.Length.ToString());
+        //    // 指定返回的是一个不能被客户端读取的流，必须被下载
+        //    Response.ContentType = "application/ms-excel";
+        //    // 把文件流发送到客户端
+        //    Response.WriteFile(file.FullName);
+        //    // 停止页面的执行
+        //    //Response.End();     
+        //    HttpContext.Current.ApplicationInstance.CompleteRequest();
+        //}
+        //catch (Exception ex)
+        //{
+        //    Response.Write("<script>alert('系统出现以下错误://n" + ex.Message + "!//n请尽快与管理员联系.')</script>");
+        //}
+    }
+}

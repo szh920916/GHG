@@ -1,0 +1,29 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="HuoDongShuiPing_ShengChanYongDian.aspx.cs"
+    Inherits="Modules_GHG_DataCollection_TaoCi_HuoDongShuiPing_ShengChanYongDian" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div style="margin-left: 140px; margin-top: 30px">
+        <asp:Label ID="Label2" runat="server" Text="生产用电表" Font-Bold="True"></asp:Label>
+    </div>
+    <div style="margin-top: 15px; margin-left: 120px">
+        年份：<asp:DropDownList ID="DropDownList1" runat="server">
+        </asp:DropDownList>
+    </div>
+    <div style="margin-left: 30px; margin-top: 15px">
+        <asp:Label ID="Label3" runat="server" Text="电力净购入量："></asp:Label>
+        <asp:TextBox ID="TextBox2" runat="server" Width="100px"></asp:TextBox>
+        <asp:Label ID="Label4" runat="server" Text="MWh"></asp:Label>
+    </div>
+    <div style="margin-left: 130px; margin-top: 30px">
+        <asp:Button ID="Button1" runat="server" Text="保存" OnClick="Button1_Click" Height="26px"
+            Width="51px" />
+    </div>
+    </form>
+</body>
+</html>

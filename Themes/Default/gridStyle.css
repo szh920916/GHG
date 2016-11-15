@@ -1,0 +1,148 @@
+.Grid 
+{ 
+  border: 1px solid #7C7C94; 
+  background-color: #FFFFFF; 
+  cursor: pointer; 
+}
+
+.HeadingRow 
+{ 
+  background-color: #E2E2E2; 
+  text-align:center;  
+}
+
+.HeadingCell 
+{ 
+  background-color: #E2E2E2; 
+  border: 1px solid #FFFFFF; 
+  border-right-color: #B5B5B5; 
+  border-bottom-color: #B5B5B5; 
+  padding: 3px;
+  text-align:center;
+}
+
+.HeadingCellText
+{
+  font-family: verdana; 
+  font-size: 12px; 
+  font-weight: bold; 
+  text-align: left;
+  font-family: verdana;
+  text-align:center;
+}
+.HeadingField
+{
+  text-align:center;
+} 
+
+.DataRow 
+{ 
+  background-color: #FFFFFF; 
+}
+
+.DataCell 
+{ 
+  cursor: default;
+  padding: 3px; 
+  border-right: 1px solid #EAE9E1; 
+  border-bottom: 1px solid #EAE9E1; 
+  font-family: verdana; 
+  font-size: 11px; 
+} 
+
+.EditDataCell
+{ 
+  padding: 0px!important; 
+  background-color: #E2E2E2; 
+  border-width:0px!important;
+  height:18px;
+} 
+
+.EditDataField
+{ 
+  padding: 0px; 
+  padding-left: 1px; 
+  font-family: verdana; 
+  font-size: 11px; 
+  height: 13px;
+  width: 98%!important; 
+  height:18px;
+} 
+
+.DataRow td.FirstDataCell 
+{ 
+  padding-left: 3px; 
+} 
+
+.SelectedRow 
+{ 
+  background-color: #FFEEC2;   
+  height: 20px;
+}
+
+.SelectedRow td.DataCell 
+{ 
+  cursor: default; 
+  padding: 2px; 
+  padding-left: 3px; 
+  padding-bottom: 3px; 
+  font-family: verdana; 
+  font-size: 11px; 
+  border-bottom: 1px solid #4B4B6F; 
+  border-top: 1px solid #4B4B6F; 
+  border-right: 0px;    
+  height: 20px;
+}
+
+.SelectorCell 
+{ 
+  background-color: #E2E2E2; 
+  border: 1px solid #FFFFFF; 
+  border-right-color: #B5B5B5; 
+  border-bottom-color: #B5B5B5;   
+  height: 20px;
+}
+
+.GridFooter
+{
+  cursor: default;
+  padding:5px;
+}
+
+.GridFooter a 
+{
+  color: Black;
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+.PagerText
+{ 
+  font-family: verdana; 
+  font-size: 11px; 
+} 
+
+.GroupHeading
+{
+  color: #706F91; 
+  background-color: #FFFFFF; 
+  font-family: verdana; 
+  font-weight: bold;
+  font-size: 11px; 
+  border-bottom: 1px solid #EAE9E1; 
+  padding-top: 10px;
+  padding-bottom: 3px;
+}
+
+.GroupByCell
+{
+  cursor: pointer;
+}
+
+.GroupByText
+{
+  color: #FFFFFF; 
+  font-size: 11px;   
+  font-weight: bold; 
+  padding-right: 5px;
+}
